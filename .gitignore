@@ -1,0 +1,12 @@
+# ESP-IDF build output
+build/
+
+# Local SDK configuration generated from sdkconfig.defaults
+sdkconfig
+sdkconfig.old
+
+# Managed dependencies restored from lockfile
+managed_components/
+
+# Editor-local files
+.vscode/
