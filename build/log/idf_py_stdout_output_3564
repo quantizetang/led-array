@@ -1,0 +1,471 @@
+Command: C:\Espressif\python_env\idf5.5_py3.13_env\Scripts\python.exe C:\Espressif\frameworks\esp-idf-v5.5.3\tools/idf_monitor.py -p COM10 -b 115200 --toolchain-prefix riscv32-esp-elf- --target esp32c3 --revision 3 --decode-panic backtrace C:\workspaces\led-array\build\led_array_platform.elf C:\workspaces\led-array\build\bootloader\bootloader.elf --force-color -m 'C:\Espressif\python_env\idf5.5_py3.13_env\Scripts\python.exe' 'C:\Espressif\frameworks\esp-idf-v5.5.3\tools\idf.py' '-p' 'COM10'
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0xf (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403935ac
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x155c
+load:0x403cbf10,len:0xc84
+load:0x403ce710,len:0x2fa4
+entry 0x403cbf1a
+[0;32mI (24) boot: ESP-IDF v5.5.3 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Mar 12 2026 22:15:17[0m
+[0;32mI (25) boot: chip revision: v0.4[0m
+[0;32mI (25) boot: efuse block revision: v1.3[0m
+[0;32mI (28) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (32) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (36) boot.esp32c3: SPI Flash Size : 4MB[0m
+[0;32mI (39) boot: Enabling RNG early entropy source...[0m
+[0;32mI (44) boot: Partition Table:[0m
+[0;32mI (46) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (53) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (59) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (66) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (72) boot: End of partition table[0m
+[0;32mI (76) esp_image: segment 0: paddr=00010020 vaddr=3c0b0020 size=1df38h (122680) map[0m
+[0;32mI (102) esp_image: segment 1: paddr=0002df60 vaddr=3fc95400 size=020b8h (  8376) load[0m
+[0;32mI (104) esp_image: segment 2: paddr=00030020 vaddr=42000020 size=a2f3ch (667452) map[0m
+[0;32mI (210) esp_image: segment 3: paddr=000d2f64 vaddr=3fc974b8 size=013dch (  5084) load[0m
+[0;32mI (211) esp_image: segment 4: paddr=000d4348 vaddr=40380000 size=153dch ( 87004) load[0m
+[0;32mI (230) esp_image: segment 5: paddr=000e972c vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (236) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (236) boot: Disabling RNG early entropy source...[0m
+[0;32mI (247) cpu_start: Unicore app[0m
+[0;32mI (255) cpu_start: GPIO 20 and 21 are used as console UART I/O pins[0m
+[0;32mI (256) cpu_start: Pro cpu start user code[0m
+[0;32mI (256) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (258) app_init: Application information:[0m
+[0;32mI (261) app_init: Project name:     led_array_platform[0m
+[0;32mI (266) app_init: App version:      1[0m
+[0;32mI (270) app_init: Compile time:     Mar 12 2026 22:13:29[0m
+[0;32mI (275) app_init: ELF file SHA256:  25b71d3c8...[0m
+[0;32mI (279) app_init: ESP-IDF:          v5.5.3[0m
+[0;32mI (283) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (287) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (291) efuse_init: Chip rev:         v0.4[0m
+[0;32mI (295) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (301) heap_init: At 3FC9D340 len 00022CC0 (139 KiB): RAM[0m
+[0;32mI (306) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (312) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (318) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (324) spi_flash: detected chip: generic[0m
+[0;32mI (327) spi_flash: flash io: dio[0m
+[0;32mI (330) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (336) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (343) main_task: Started on CPU0[0m
+[0;32mI (343) main_task: Calling app_main()[0m
+[0;32mI (343) app_main: booting led_array_platform[0m
+[0;32mI (353) app_main: config loaded: startup_effect=1 brightness=16 rotation=0 serpentine=true wifi_ssid_saved=false ap_ssid=LED-Array-Setup[0m
+[0;32mI (363) app_main: controller initialized[0m
+[0;32mI (363) app_main: ws2812 matrix initialized on GPIO7[0m
+[0;32mI (373) mpu6050: mpu6050 probe ok, WHO_AM_I=0x70[0m
+[0;33mW (373) mpu6050: unexpected WHO_AM_I=0x70[0m
+[0;32mI (373) mpu6050: mpu6050 wake complete[0m
+[0;32mI (383) app_main: mpu6050 task started on I2C SDA=GPIO5 SCL=GPIO6[0m
+[0;32mI (383) mpu6050: tilt changed: dir=1 ax=-0.856g ay=0.350g az=-0.303g[0m
+[0;32mI (393) app_main: provider manager started[0m
+[0;32mI (393) wifi_portal: initializing Wi-Fi and captive portal manager[0m
+[0;32mI (403) pp: pp rom version: 9387209[0m
+[0;32mI (403) net80211: net80211 rom version: 9387209[0m
+[0;32mI (423) wifi:wifi driver task: 3fca8c04, prio:23, stack:6656, core=0[0m
+[0;32mI (423) wifi:wifi firmware version: 4df78f2[0m
+[0;32mI (423) wifi:wifi certification version: v7.0[0m
+[0;32mI (423) wifi:config NVS flash: enabled[0m
+[0;32mI (423) wifi:config nano formatting: disabled[0m
+[0;32mI (433) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (433) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (443) wifi:Init management short buffer num: 32[0m
+[0;32mI (443) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (453) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (453) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (453) wifi:Init static rx buffer num: 10[0m
+[0;32mI (463) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (463) wifi_init: rx ba win: 6[0m
+[0;32mI (463) wifi_init: accept mbox: 6[0m
+[0;32mI (473) wifi_init: tcpip mbox: 32[0m
+[0;32mI (473) wifi_init: udp mbox: 6[0m
+[0;32mI (473) wifi_init: tcp mbox: 6[0m
+[0;32mI (483) wifi_init: tcp tx win: 5760[0m
+[0;32mI (483) wifi_init: tcp rx win: 5760[0m
+[0;32mI (483) wifi_init: tcp mss: 1440[0m
+[0;32mI (483) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (493) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (493) wifi_portal: AP-only debug mode enabled, starting captive portal hotspot unconditionally[0m
+[0;32mI (503) wifi_portal: starting captive portal hotspot: ssid='LED-Array-Setup' auth=WPA/WPA2-PSK ip=http://192.168.4.1/[0m
+[0;32mI (513) phy_init: phy_version 1232,d493f299,Aug 25 2025,19:01:20[0m
+[0;32mI (563) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (573) wifi:mode : sta (e0:72:a1:6d:8f:f0) + softAP (e0:72:a1:6d:8f:f1)[0m
+[0;32mI (573) wifi:enable tsf[0m
+[0;32mI (573) wifi:Total power save buffer number: 16[0m
+[0;32mI (573) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (583) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (583) wifi_portal: station started, attempting Wi-Fi connection[0m
+[0;32mI (593) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (603) wifi_portal: portal HTTP server started at http://192.168.4.1/[0m
+[0;32mI (603) wifi_portal: dns captive portal responder started on UDP/53[0m
+[0;32mI (613) app_main: wifi manager started[0m
+[0;32mI (613) app_main: app state entered captive portal / hotspot mode[0m
+[0;32mI (1403) mpu6050: reading ax=-0.854g ay=0.348g az=-0.295g magnitude=0.968g[0m
+[0;32mI (2503) mpu6050: reading ax=-0.859g ay=0.350g az=-0.298g magnitude=0.975g[0m
+[0;32mI (3603) mpu6050: reading ax=-0.854g ay=0.347g az=-0.295g magnitude=0.968g[0m
+[0;32mI (4703) mpu6050: reading ax=-0.853g ay=0.353g az=-0.296g magnitude=0.970g[0m
+[0;32mI (5803) mpu6050: reading ax=-0.856g ay=0.350g az=-0.301g magnitude=0.973g[0m
+[0;32mI (6803) mpu6050: reading ax=-0.856g ay=0.352g az=-0.299g magnitude=0.972g[0m
+[0;32mI (7903) mpu6050: reading ax=-0.854g ay=0.349g az=-0.298g magnitude=0.970g[0m
+[0;32mI (8903) mpu6050: reading ax=-0.851g ay=0.350g az=-0.301g magnitude=0.968g[0m
+[0;32mI (10003) mpu6050: reading ax=-0.854g ay=0.347g az=-0.293g magnitude=0.968g[0m
+[0;32mI (11003) mpu6050: reading ax=-0.855g ay=0.354g az=-0.301g magnitude=0.973g[0m
+[0;32mI (12103) mpu6050: reading ax=-0.853g ay=0.352g az=-0.301g magnitude=0.970g[0m
+[0;32mI (13203) mpu6050: reading ax=-0.857g ay=0.349g az=-0.299g magnitude=0.972g[0m
+[0;32mI (14303) mpu6050: reading ax=-0.853g ay=0.351g az=-0.301g magnitude=0.970g[0m
+[0;32mI (15303) mpu6050: reading ax=-0.854g ay=0.350g az=-0.305g magnitude=0.972g[0m
+[0;32mI (16403) mpu6050: reading ax=-0.854g ay=0.350g az=-0.296g magnitude=0.969g[0m
+[0;32mI (17403) mpu6050: reading ax=-0.857g ay=0.351g az=-0.301g magnitude=0.973g[0m
+[0;32mI (18503) mpu6050: reading ax=-0.862g ay=0.349g az=-0.298g magnitude=0.977g[0m
+[0;32mI (19603) mpu6050: reading ax=-0.855g ay=0.347g az=-0.299g magnitude=0.970g[0m
+[0;32mI (20703) mpu6050: reading ax=-0.854g ay=0.353g az=-0.304g magnitude=0.973g[0m
+[0;32mI (21803) mpu6050: reading ax=-0.853g ay=0.353g az=-0.296g magnitude=0.969g[0m
+[0;32mI (22803) mpu6050: reading ax=-0.856g ay=0.350g az=-0.298g magnitude=0.971g[0m
+[0;32mI (23903) mpu6050: reading ax=-0.854g ay=0.353g az=-0.300g magnitude=0.972g[0m
+[0;32mI (25003) mpu6050: reading ax=-0.856g ay=0.351g az=-0.298g magnitude=0.972g[0m
+[0;32mI (26103) mpu6050: reading ax=-0.855g ay=0.351g az=-0.299g magnitude=0.971g[0m
+[0;32mI (27203) mpu6050: reading ax=-0.857g ay=0.351g az=-0.299g magnitude=0.973g[0m
+[0;32mI (28303) mpu6050: reading ax=-0.852g ay=0.348g az=-0.292g magnitude=0.966g[0m
+[0;32mI (29303) mpu6050: reading ax=-0.854g ay=0.351g az=-0.298g magnitude=0.970g[0m
+[0;32mI (30403) mpu6050: reading ax=-0.855g ay=0.351g az=-0.298g magnitude=0.971g[0m
+[0;32mI (31503) mpu6050: reading ax=-0.854g ay=0.353g az=-0.296g magnitude=0.970g[0m
+[0;32mI (32603) mpu6050: reading ax=-0.860g ay=0.353g az=-0.298g magnitude=0.976g[0m
+[0;32mI (33703) mpu6050: reading ax=-0.872g ay=0.346g az=-0.288g magnitude=0.981g[0m
+[0;32mI (34703) mpu6050: reading ax=-0.856g ay=0.356g az=-0.295g magnitude=0.973g[0m
+[0;32mI (35803) mpu6050: reading ax=-0.854g ay=0.351g az=-0.298g magnitude=0.970g[0m
+[0;32mI (36803) mpu6050: reading ax=-0.852g ay=0.357g az=-0.297g magnitude=0.970g[0m
+[0;32mI (37903) mpu6050: reading ax=-0.854g ay=0.351g az=-0.294g magnitude=0.969g[0m
+[0;32mI (39003) mpu6050: reading ax=-0.861g ay=0.351g az=-0.301g magnitude=0.977g[0m
+[0;32mI (40103) mpu6050: reading ax=-0.855g ay=0.351g az=-0.304g magnitude=0.973g[0m
+[0;32mI (41203) mpu6050: reading ax=-0.854g ay=0.351g az=-0.298g magnitude=0.970g[0m
+[0;32mI (42203) mpu6050: reading ax=-0.854g ay=0.355g az=-0.303g magnitude=0.974g[0m
+[0;32mI (43303) mpu6050: reading ax=-0.852g ay=0.351g az=-0.303g magnitude=0.970g[0m
+[0;32mI (44303) mpu6050: reading ax=-0.852g ay=0.352g az=-0.291g magnitude=0.967g[0m
+[0;32mI (45403) mpu6050: reading ax=-0.844g ay=0.352g az=-0.312g magnitude=0.966g[0m
+[0;32mI (46503) mpu6050: reading ax=-0.854g ay=0.351g az=-0.295g magnitude=0.970g[0m
+[0;32mI (47603) mpu6050: reading ax=-0.858g ay=0.348g az=-0.291g magnitude=0.970g[0m
+[0;32mI (48703) mpu6050: reading ax=-0.856g ay=0.352g az=-0.302g magnitude=0.974g[0m
+[0;32mI (49703) mpu6050: reading ax=-0.854g ay=0.353g az=-0.302g magnitude=0.972g[0m
+[0;32mI (50703) mpu6050: reading ax=-0.856g ay=0.345g az=-0.291g magnitude=0.968g[0m
+[0;32mI (51803) mpu6050: reading ax=-0.859g ay=0.349g az=-0.296g magnitude=0.973g[0m
+[0;32mI (52803) mpu6050: reading ax=-0.854g ay=0.353g az=-0.292g magnitude=0.970g[0m
+[0;32mI (53903) mpu6050: reading ax=-0.856g ay=0.347g az=-0.290g magnitude=0.969g[0m
+[0;32mI (55003) mpu6050: reading ax=-0.854g ay=0.358g az=-0.303g magnitude=0.974g[0m
+[0;32mI (56003) mpu6050: reading ax=-0.855g ay=0.349g az=-0.292g magnitude=0.969g[0m
+[0;32mI (57103) mpu6050: reading ax=-0.855g ay=0.349g az=-0.294g magnitude=0.969g[0m
+[0;32mI (58103) mpu6050: reading ax=-0.856g ay=0.352g az=-0.304g magnitude=0.975g[0m
+[0;32mI (59203) mpu6050: reading ax=-0.851g ay=0.352g az=-0.298g magnitude=0.968g[0m
+[0;32mI (60203) mpu6050: reading ax=-0.853g ay=0.353g az=-0.299g magnitude=0.970g[0m
+[0;32mI (61303) mpu6050: reading ax=-0.860g ay=0.350g az=-0.297g magnitude=0.974g[0m
+[0;32mI (62303) mpu6050: reading ax=-0.854g ay=0.352g az=-0.294g magnitude=0.969g[0m
+[0;32mI (63303) mpu6050: reading ax=-0.852g ay=0.353g az=-0.296g magnitude=0.969g[0m
+[0;32mI (64403) mpu6050: reading ax=-0.855g ay=0.354g az=-0.304g magnitude=0.974g[0m
+[0;32mI (65503) mpu6050: reading ax=-0.857g ay=0.351g az=-0.302g magnitude=0.974g[0m
+[0;32mI (66503) mpu6050: reading ax=-0.857g ay=0.355g az=-0.299g magnitude=0.975g[0m
+[0;32mI (67503) mpu6050: reading ax=-0.854g ay=0.353g az=-0.298g magnitude=0.970g[0m
+[0;32mI (68603) mpu6050: reading ax=-0.855g ay=0.347g az=-0.296g magnitude=0.969g[0m
+[0;32mI (69603) mpu6050: reading ax=-0.858g ay=0.350g az=-0.305g magnitude=0.976g[0m
+[0;32mI (70703) mpu6050: reading ax=-0.854g ay=0.354g az=-0.297g magnitude=0.971g[0m
+[0;32mI (71703) mpu6050: reading ax=-0.857g ay=0.349g az=-0.297g magnitude=0.972g[0m
+[0;32mI (72703) mpu6050: reading ax=-0.857g ay=0.346g az=-0.297g magnitude=0.971g[0m
+[0;32mI (73803) mpu6050: reading ax=-0.854g ay=0.350g az=-0.300g magnitude=0.970g[0m
+[0;32mI (74803) mpu6050: reading ax=-0.856g ay=0.348g az=-0.302g magnitude=0.972g[0m
+[0;32mI (75903) mpu6050: reading ax=-0.850g ay=0.353g az=-0.305g magnitude=0.970g[0m
+[0;32mI (76903) mpu6050: reading ax=-0.853g ay=0.354g az=-0.297g magnitude=0.969g[0m
+[0;32mI (78003) mpu6050: reading ax=-0.859g ay=0.349g az=-0.290g magnitude=0.971g[0m
+[0;32mI (79003) mpu6050: reading ax=-0.855g ay=0.348g az=-0.297g magnitude=0.970g[0m
+[0;32mI (80103) mpu6050: reading ax=-0.855g ay=0.354g az=-0.309g magnitude=0.976g[0m
+[0;32mI (81203) mpu6050: reading ax=-0.855g ay=0.354g az=-0.303g magnitude=0.974g[0m
+[0;32mI (82303) mpu6050: reading ax=-0.854g ay=0.351g az=-0.294g magnitude=0.969g[0m
+[0;32mI (83303) mpu6050: reading ax=-0.855g ay=0.350g az=-0.298g magnitude=0.971g[0m
+[0;32mI (84403) mpu6050: reading ax=-0.858g ay=0.350g az=-0.303g magnitude=0.975g[0m
+[0;32mI (85503) mpu6050: reading ax=-0.854g ay=0.347g az=-0.300g magnitude=0.970g[0m
+[0;32mI (86603) mpu6050: reading ax=-0.852g ay=0.352g az=-0.299g magnitude=0.970g[0m
+[0;32mI (87703) mpu6050: reading ax=-0.852g ay=0.353g az=-0.304g magnitude=0.971g[0m
+[0;32mI (88803) mpu6050: reading ax=-0.854g ay=0.354g az=-0.302g magnitude=0.973g[0m
+[0;32mI (89903) mpu6050: reading ax=-0.857g ay=0.348g az=-0.302g magnitude=0.973g[0m
+[0;32mI (90903) mpu6050: reading ax=-0.858g ay=0.353g az=-0.305g magnitude=0.976g[0m
+[0;32mI (91903) mpu6050: reading ax=-0.850g ay=0.350g az=-0.298g magnitude=0.966g[0m
+[0;32mI (92903) mpu6050: reading ax=-0.856g ay=0.346g az=-0.298g magnitude=0.970g[0m
+[0;32mI (94003) mpu6050: reading ax=-0.854g ay=0.352g az=-0.301g magnitude=0.971g[0m
+[0;32mI (95103) mpu6050: reading ax=-0.856g ay=0.352g az=-0.298g magnitude=0.973g[0m
+[0;32mI (96103) mpu6050: reading ax=-0.851g ay=0.348g az=-0.299g magnitude=0.967g[0m
+[0;32mI (97103) mpu6050: reading ax=-0.855g ay=0.348g az=-0.295g magnitude=0.970g[0m
+[0;32mI (98103) mpu6050: reading ax=-0.856g ay=0.347g az=-0.299g magnitude=0.971g[0m
+[0;32mI (99203) mpu6050: reading ax=-0.855g ay=0.352g az=-0.295g magnitude=0.970g[0m
+[0;32mI (100203) mpu6050: reading ax=-0.848g ay=0.355g az=-0.305g magnitude=0.969g[0m
+[0;32mI (101303) mpu6050: reading ax=-0.854g ay=0.351g az=-0.302g magnitude=0.971g[0m
+[0;32mI (102403) mpu6050: reading ax=-0.854g ay=0.353g az=-0.294g magnitude=0.970g[0m
+[0;32mI (103503) mpu6050: reading ax=-0.860g ay=0.351g az=-0.301g magnitude=0.976g[0m
+[0;32mI (104503) mpu6050: reading ax=-0.857g ay=0.352g az=-0.300g magnitude=0.974g[0m
+[0;32mI (105603) mpu6050: reading ax=-0.856g ay=0.348g az=-0.297g magnitude=0.971g[0m
+[0;32mI (106703) mpu6050: reading ax=-0.856g ay=0.352g az=-0.301g magnitude=0.973g[0m
+[0;32mI (107803) mpu6050: reading ax=-0.857g ay=0.352g az=-0.299g magnitude=0.974g[0m
+[0;32mI (108803) mpu6050: reading ax=-0.854g ay=0.351g az=-0.300g magnitude=0.971g[0m
+[0;32mI (109903) mpu6050: reading ax=-0.858g ay=0.352g az=-0.294g magnitude=0.973g[0m
+[0;32mI (111003) mpu6050: reading ax=-0.857g ay=0.351g az=-0.296g magnitude=0.972g[0m
+[0;32mI (112003) mpu6050: reading ax=-0.852g ay=0.351g az=-0.296g magnitude=0.967g[0m
+[0;32mI (113103) mpu6050: reading ax=-0.857g ay=0.347g az=-0.304g magnitude=0.973g[0m
+[0;32mI (114103) mpu6050: reading ax=-0.854g ay=0.352g az=-0.296g magnitude=0.969g[0m
+[0;32mI (115203) mpu6050: reading ax=-0.856g ay=0.351g az=-0.297g magnitude=0.972g[0m
+[0;32mI (116303) mpu6050: reading ax=-0.855g ay=0.352g az=-0.298g magnitude=0.972g[0m
+[0;32mI (117303) mpu6050: reading ax=-0.852g ay=0.357g az=-0.300g magnitude=0.972g[0m
+[0;32mI (118403) mpu6050: reading ax=-0.856g ay=0.351g az=-0.302g magnitude=0.974g[0m
+[0;32mI (119503) mpu6050: reading ax=-0.853g ay=0.366g az=-0.292g magnitude=0.973g[0m
+[0;32mI (120603) mpu6050: reading ax=-0.860g ay=0.351g az=-0.300g magnitude=0.976g[0m
+[0;32mI (121703) mpu6050: reading ax=-0.881g ay=0.336g az=-0.266g magnitude=0.980g[0m
+[0;32mI (122703) mpu6050: reading ax=-0.859g ay=0.347g az=-0.294g magnitude=0.972g[0m
+[0;32mI (123803) mpu6050: reading ax=-0.857g ay=0.332g az=-0.322g magnitude=0.974g[0m
+[0;32mI (124903) mpu6050: reading ax=-0.857g ay=0.348g az=-0.296g magnitude=0.971g[0m
+[0;32mI (125903) mpu6050: reading ax=-0.860g ay=0.349g az=-0.307g magnitude=0.978g[0m
+[0;32mI (127003) mpu6050: reading ax=-0.855g ay=0.347g az=-0.294g magnitude=0.968g[0m
+[0;32mI (128103) mpu6050: reading ax=-0.853g ay=0.351g az=-0.298g magnitude=0.969g[0m
+[0;32mI (129203) mpu6050: reading ax=-0.853g ay=0.346g az=-0.306g magnitude=0.970g[0m
+[0;32mI (130203) mpu6050: reading ax=-0.858g ay=0.347g az=-0.304g magnitude=0.974g[0m
+[0;32mI (131203) mpu6050: reading ax=-0.853g ay=0.348g az=-0.290g magnitude=0.966g[0m
+[0;32mI (132303) mpu6050: reading ax=-0.857g ay=0.343g az=-0.300g magnitude=0.971g[0m
+[0;32mI (133403) mpu6050: reading ax=-0.844g ay=0.349g az=-0.291g magnitude=0.959g[0m
+[0;32mI (134503) mpu6050: reading ax=-0.855g ay=0.346g az=-0.296g magnitude=0.969g[0m
+[0;32mI (135603) mpu6050: reading ax=-0.854g ay=0.349g az=-0.307g magnitude=0.973g[0m
+[0;32mI (136703) mpu6050: reading ax=-0.857g ay=0.351g az=-0.304g magnitude=0.975g[0m
+[0;32mI (137803) mpu6050: reading ax=-0.856g ay=0.354g az=-0.302g magnitude=0.975g[0m
+[0;32mI (138903) mpu6050: reading ax=-0.856g ay=0.349g az=-0.297g magnitude=0.971g[0m
+[0;32mI (139903) mpu6050: reading ax=-0.854g ay=0.354g az=-0.293g magnitude=0.970g[0m
+[0;32mI (141003) mpu6050: reading ax=-0.859g ay=0.354g az=-0.291g magnitude=0.973g[0m
+[0;32mI (142103) mpu6050: reading ax=-0.854g ay=0.349g az=-0.295g magnitude=0.969g[0m
+[0;32mI (143103) mpu6050: reading ax=-0.854g ay=0.361g az=-0.312g magnitude=0.979g[0m
+[0;32mI (144203) mpu6050: reading ax=-0.847g ay=0.347g az=-0.302g magnitude=0.964g[0m
+[0;32mI (145303) mpu6050: reading ax=-0.854g ay=0.352g az=-0.298g magnitude=0.971g[0m
+[0;32mI (146403) mpu6050: reading ax=-0.854g ay=0.351g az=-0.299g magnitude=0.970g[0m
+[0;32mI (147503) mpu6050: reading ax=-0.856g ay=0.350g az=-0.297g magnitude=0.971g[0m
+[0;32mI (148603) mpu6050: reading ax=-0.858g ay=0.354g az=-0.302g magnitude=0.976g[0m
+[0;32mI (149703) mpu6050: reading ax=-0.862g ay=0.349g az=-0.296g magnitude=0.976g[0m
+[0;32mI (150803) mpu6050: reading ax=-0.857g ay=0.349g az=-0.290g magnitude=0.970g[0m
+[0;32mI (151903) mpu6050: reading ax=-0.864g ay=0.352g az=-0.289g magnitude=0.976g[0m
+[0;32mI (152903) mpu6050: reading ax=-0.856g ay=0.354g az=-0.299g magnitude=0.973g[0m
+[0;32mI (153903) mpu6050: reading ax=-0.843g ay=0.349g az=-0.305g magnitude=0.962g[0m
+[0;32mI (155003) mpu6050: reading ax=-0.852g ay=0.337g az=-0.300g magnitude=0.964g[0m
+[0;32mI (156003) mpu6050: reading ax=-0.853g ay=0.347g az=-0.290g magnitude=0.966g[0m
+[0;32mI (157003) mpu6050: reading ax=-0.856g ay=0.344g az=-0.295g magnitude=0.969g[0m
+[0;32mI (158103) mpu6050: reading ax=-0.860g ay=0.353g az=-0.294g magnitude=0.975g[0m
+[0;32mI (159203) mpu6050: reading ax=-0.853g ay=0.346g az=-0.289g magnitude=0.965g[0m
+[0;32mI (160203) mpu6050: reading ax=-0.864g ay=0.347g az=-0.292g magnitude=0.976g[0m
+[0;32mI (161203) mpu6050: reading ax=-0.860g ay=0.346g az=-0.293g magnitude=0.973g[0m
+[0;32mI (162303) mpu6050: reading ax=-0.858g ay=0.350g az=-0.297g magnitude=0.973g[0m
+[0;32mI (163403) mpu6050: reading ax=-0.853g ay=0.360g az=-0.301g magnitude=0.974g[0m
+[0;32mI (164403) mpu6050: reading ax=-0.854g ay=0.351g az=-0.300g magnitude=0.971g[0m
+[0;32mI (165503) mpu6050: reading ax=-0.849g ay=0.351g az=-0.303g magnitude=0.967g[0m
+[0;32mI (166603) mpu6050: reading ax=-0.874g ay=0.352g az=-0.307g magnitude=0.991g[0m
+[0;32mI (167703) mpu6050: reading ax=-0.856g ay=0.353g az=-0.305g magnitude=0.975g[0m
+[0;32mI (168803) mpu6050: reading ax=-0.853g ay=0.349g az=-0.308g magnitude=0.972g[0m
+[0;32mI (169803) mpu6050: reading ax=-0.854g ay=0.354g az=-0.302g magnitude=0.972g[0m
+[0;32mI (170903) mpu6050: reading ax=-0.853g ay=0.354g az=-0.301g magnitude=0.971g[0m
+[0;32mI (172003) mpu6050: reading ax=-0.861g ay=0.354g az=-0.285g magnitude=0.974g[0m
+[0;32mI (173003) mpu6050: reading ax=-0.861g ay=0.345g az=-0.302g magnitude=0.975g[0m
+[0;32mI (174003) mpu6050: reading ax=-0.855g ay=0.346g az=-0.300g magnitude=0.969g[0m
+[0;32mI (175003) mpu6050: reading ax=-0.855g ay=0.350g az=-0.293g magnitude=0.969g[0m
+[0;32mI (176103) mpu6050: reading ax=-0.858g ay=0.349g az=-0.296g magnitude=0.972g[0m
+[0;32mI (177203) mpu6050: reading ax=-0.855g ay=0.348g az=-0.293g magnitude=0.969g[0m
+[0;32mI (178203) mpu6050: reading ax=-0.858g ay=0.351g az=-0.295g magnitude=0.973g[0m
+[0;32mI (179303) mpu6050: reading ax=-0.845g ay=0.355g az=-0.301g magnitude=0.965g[0m
+[0;32mI (180403) mpu6050: reading ax=-0.854g ay=0.352g az=-0.298g magnitude=0.971g[0m
+[0;32mI (181503) mpu6050: reading ax=-0.860g ay=0.345g az=-0.300g magnitude=0.974g[0m
+[0;32mI (182603) mpu6050: reading ax=-0.854g ay=0.349g az=-0.298g magnitude=0.969g[0m
+[0;32mI (183703) mpu6050: reading ax=-0.856g ay=0.354g az=-0.302g magnitude=0.975g[0m
+[0;32mI (184803) mpu6050: reading ax=-0.857g ay=0.353g az=-0.301g magnitude=0.975g[0m
+[0;32mI (185903) mpu6050: reading ax=-0.857g ay=0.353g az=-0.301g magnitude=0.975g[0m
+[0;32mI (187003) mpu6050: reading ax=-0.859g ay=0.350g az=-0.297g magnitude=0.974g[0m
+[0;32mI (188103) mpu6050: reading ax=-0.862g ay=0.346g az=-0.297g magnitude=0.975g[0m
+[0;32mI (189203) mpu6050: reading ax=-0.854g ay=0.346g az=-0.290g magnitude=0.966g[0m
+[0;32mI (190203) mpu6050: reading ax=-0.872g ay=0.354g az=-0.298g magnitude=0.987g[0m
+[0;32mI (191303) mpu6050: reading ax=-0.860g ay=0.347g az=-0.302g magnitude=0.975g[0m
+[0;32mI (192403) mpu6050: reading ax=-0.856g ay=0.351g az=-0.291g magnitude=0.970g[0m
+[0;32mI (193503) mpu6050: reading ax=-0.870g ay=0.349g az=-0.294g magnitude=0.982g[0m
+[0;32mI (194603) mpu6050: reading ax=-0.862g ay=0.345g az=-0.302g magnitude=0.976g[0m
+[0;32mI (195703) mpu6050: reading ax=-0.859g ay=0.349g az=-0.290g magnitude=0.972g[0m
+[0;32mI (196803) mpu6050: reading ax=-0.859g ay=0.351g az=-0.304g magnitude=0.976g[0m
+[0;32mI (197903) mpu6050: reading ax=-0.855g ay=0.353g az=-0.294g magnitude=0.971g[0m
+[0;32mI (198903) mpu6050: reading ax=-0.859g ay=0.360g az=-0.297g magnitude=0.977g[0m
+[0;32mI (199903) mpu6050: reading ax=-0.857g ay=0.351g az=-0.288g magnitude=0.970g[0m
+[0;32mI (200903) mpu6050: reading ax=-0.859g ay=0.352g az=-0.290g magnitude=0.973g[0m
+[0;32mI (202003) mpu6050: reading ax=-0.855g ay=0.351g az=-0.297g magnitude=0.971g[0m
+[0;32mI (203003) mpu6050: reading ax=-0.854g ay=0.354g az=-0.297g magnitude=0.971g[0m
+[0;32mI (204103) mpu6050: reading ax=-0.858g ay=0.351g az=-0.297g magnitude=0.973g[0m
+[0;32mI (205203) mpu6050: reading ax=-0.859g ay=0.355g az=-0.298g magnitude=0.976g[0m
+[0;32mI (206303) mpu6050: reading ax=-0.856g ay=0.349g az=-0.300g magnitude=0.972g[0m
+[0;32mI (207303) mpu6050: reading ax=-0.857g ay=0.347g az=-0.296g magnitude=0.971g[0m
+[0;32mI (208303) mpu6050: reading ax=-0.856g ay=0.348g az=-0.292g magnitude=0.969g[0m
+[0;32mI (209403) mpu6050: reading ax=-0.850g ay=0.353g az=-0.301g magnitude=0.968g[0m
+[0;32mI (210503) mpu6050: reading ax=-0.853g ay=0.349g az=-0.296g magnitude=0.968g[0m
+[0;32mI (211603) mpu6050: reading ax=-0.856g ay=0.353g az=-0.296g magnitude=0.972g[0m
+[0;32mI (212703) mpu6050: reading ax=-0.854g ay=0.351g az=-0.300g magnitude=0.971g[0m
+[0;32mI (213803) mpu6050: reading ax=-0.854g ay=0.351g az=-0.297g magnitude=0.970g[0m
+[0;32mI (214803) mpu6050: reading ax=-0.854g ay=0.351g az=-0.301g magnitude=0.972g[0m
+[0;32mI (215903) mpu6050: reading ax=-0.853g ay=0.353g az=-0.302g magnitude=0.971g[0m
+[0;32mI (217003) mpu6050: reading ax=-0.855g ay=0.349g az=-0.303g magnitude=0.972g[0m
+[0;32mI (218103) mpu6050: reading ax=-0.857g ay=0.350g az=-0.296g magnitude=0.972g[0m
+[0;32mI (219203) mpu6050: reading ax=-0.854g ay=0.348g az=-0.296g magnitude=0.968g[0m
+[0;32mI (220303) mpu6050: reading ax=-0.855g ay=0.351g az=-0.290g magnitude=0.969g[0m
+[0;32mI (221303) mpu6050: reading ax=-0.858g ay=0.350g az=-0.302g magnitude=0.975g[0m
+[0;32mI (222403) mpu6050: reading ax=-0.857g ay=0.357g az=-0.298g magnitude=0.975g[0m
+[0;32mI (223503) mpu6050: reading ax=-0.860g ay=0.350g az=-0.307g magnitude=0.978g[0m
+[0;32mI (224603) mpu6050: reading ax=-0.854g ay=0.350g az=-0.297g magnitude=0.970g[0m
+[0;32mI (225703) mpu6050: reading ax=-0.857g ay=0.348g az=-0.295g magnitude=0.971g[0m
+[0;32mI (226803) mpu6050: reading ax=-0.854g ay=0.348g az=-0.295g magnitude=0.969g[0m
+[0;32mI (227903) mpu6050: reading ax=-0.854g ay=0.349g az=-0.304g magnitude=0.971g[0m
+[0;32mI (228903) mpu6050: reading ax=-0.855g ay=0.353g az=-0.296g magnitude=0.971g[0m
+[0;32mI (229903) mpu6050: reading ax=-0.858g ay=0.350g az=-0.301g magnitude=0.975g[0m
+[0;32mI (230903) mpu6050: reading ax=-0.857g ay=0.348g az=-0.297g magnitude=0.972g[0m
+[0;32mI (232003) mpu6050: reading ax=-0.856g ay=0.350g az=-0.302g magnitude=0.973g[0m
+[0;32mI (233003) mpu6050: reading ax=-0.854g ay=0.356g az=-0.297g magnitude=0.972g[0m
+[0;32mI (234003) mpu6050: reading ax=-0.857g ay=0.354g az=-0.303g magnitude=0.976g[0m
+[0;32mI (235103) mpu6050: reading ax=-0.854g ay=0.349g az=-0.301g magnitude=0.970g[0m
+[0;32mI (236203) mpu6050: reading ax=-0.858g ay=0.351g az=-0.301g magnitude=0.975g[0m
+[0;32mI (237203) mpu6050: reading ax=-0.858g ay=0.359g az=-0.302g magnitude=0.978g[0m
+[0;32mI (238303) mpu6050: reading ax=-0.855g ay=0.353g az=-0.296g magnitude=0.972g[0m
+[0;32mI (239403) mpu6050: reading ax=-0.860g ay=0.347g az=-0.296g magnitude=0.974g[0m
+[0;32mI (240503) mpu6050: reading ax=-0.858g ay=0.348g az=-0.296g magnitude=0.972g[0m
+[0;32mI (241603) mpu6050: reading ax=-0.853g ay=0.349g az=-0.305g magnitude=0.971g[0m
+[0;32mI (242703) mpu6050: reading ax=-0.858g ay=0.355g az=-0.295g magnitude=0.975g[0m
+[0;32mI (243803) mpu6050: reading ax=-0.856g ay=0.351g az=-0.301g magnitude=0.973g[0m
+[0;32mI (244803) mpu6050: reading ax=-0.857g ay=0.355g az=-0.299g magnitude=0.975g[0m
+[0;32mI (245903) mpu6050: reading ax=-0.854g ay=0.351g az=-0.303g magnitude=0.972g[0m
+[0;32mI (246903) mpu6050: reading ax=-0.854g ay=0.352g az=-0.301g magnitude=0.972g[0m
+[0;32mI (248003) mpu6050: reading ax=-0.855g ay=0.350g az=-0.303g magnitude=0.973g[0m
+[0;32mI (249103) mpu6050: reading ax=-0.854g ay=0.354g az=-0.304g magnitude=0.973g[0m
+[0;32mI (250103) mpu6050: reading ax=-0.855g ay=0.348g az=-0.296g magnitude=0.970g[0m
+[0;32mI (251203) mpu6050: reading ax=-0.853g ay=0.354g az=-0.303g magnitude=0.972g[0m
+[0;32mI (252203) mpu6050: reading ax=-0.853g ay=0.351g az=-0.301g magnitude=0.971g[0m
+[0;32mI (253203) mpu6050: reading ax=-0.850g ay=0.353g az=-0.301g magnitude=0.968g[0m
+[0;32mI (254203) mpu6050: reading ax=-0.856g ay=0.354g az=-0.295g magnitude=0.972g[0m
+[0;32mI (255203) mpu6050: reading ax=-0.856g ay=0.354g az=-0.294g magnitude=0.972g[0m
+[0;32mI (256303) mpu6050: reading ax=-0.854g ay=0.349g az=-0.302g magnitude=0.971g[0m
+[0;32mI (257403) mpu6050: reading ax=-0.853g ay=0.350g az=-0.295g magnitude=0.968g[0m
+[0;32mI (258503) mpu6050: reading ax=-0.855g ay=0.349g az=-0.304g magnitude=0.972g[0m
+[0;32mI (259603) mpu6050: reading ax=-0.858g ay=0.351g az=-0.302g magnitude=0.975g[0m
+[0;32mI (260703) mpu6050: reading ax=-0.859g ay=0.347g az=-0.300g magnitude=0.973g[0m
+[0;32mI (261803) mpu6050: reading ax=-0.859g ay=0.355g az=-0.295g magnitude=0.975g[0m
+[0;32mI (262903) mpu6050: reading ax=-0.856g ay=0.350g az=-0.299g magnitude=0.972g[0m
+[0;32mI (263903) mpu6050: reading ax=-0.854g ay=0.352g az=-0.295g magnitude=0.970g[0m
+[0;32mI (264903) mpu6050: reading ax=-0.856g ay=0.349g az=-0.298g magnitude=0.971g[0m
+[0;32mI (266003) mpu6050: reading ax=-0.856g ay=0.349g az=-0.300g magnitude=0.972g[0m
+[0;32mI (267003) mpu6050: reading ax=-0.853g ay=0.351g az=-0.300g magnitude=0.970g[0m
+[0;32mI (268003) mpu6050: reading ax=-0.855g ay=0.352g az=-0.302g magnitude=0.973g[0m
+[0;32mI (269103) mpu6050: reading ax=-0.860g ay=0.352g az=-0.298g magnitude=0.976g[0m
+[0;32mI (270203) mpu6050: reading ax=-0.803g ay=0.375g az=-0.350g magnitude=0.953g[0m
+[0;32mI (271203) mpu6050: reading ax=-0.860g ay=0.347g az=-0.298g magnitude=0.974g[0m
+[0;32mI (272303) mpu6050: reading ax=-0.860g ay=0.344g az=-0.297g magnitude=0.972g[0m
+[0;32mI (273403) mpu6050: reading ax=-0.860g ay=0.353g az=-0.300g magnitude=0.977g[0m
+[0;32mI (274503) mpu6050: reading ax=-0.854g ay=0.350g az=-0.303g magnitude=0.972g[0m
+[0;32mI (275603) mpu6050: reading ax=-0.858g ay=0.350g az=-0.302g magnitude=0.975g[0m
+[0;32mI (276703) mpu6050: reading ax=-0.854g ay=0.348g az=-0.307g magnitude=0.972g[0m
+[0;32mI (277803) mpu6050: reading ax=-0.857g ay=0.351g az=-0.297g magnitude=0.973g[0m
+[0;32mI (278903) mpu6050: reading ax=-0.854g ay=0.347g az=-0.301g magnitude=0.970g[0m
+[0;32mI (279903) mpu6050: reading ax=-0.858g ay=0.349g az=-0.302g magnitude=0.974g[0m
+[0;32mI (280903) mpu6050: reading ax=-0.857g ay=0.354g az=-0.296g magnitude=0.973g[0m
+[0;32mI (282003) mpu6050: reading ax=-0.857g ay=0.350g az=-0.293g magnitude=0.971g[0m
+[0;32mI (283103) mpu6050: reading ax=-0.857g ay=0.349g az=-0.303g magnitude=0.974g[0m
+[0;32mI (284103) mpu6050: reading ax=-0.855g ay=0.348g az=-0.296g magnitude=0.970g[0m
+[0;32mI (285203) mpu6050: reading ax=-0.855g ay=0.352g az=-0.295g magnitude=0.970g[0m
+[0;32mI (286303) mpu6050: reading ax=-0.860g ay=0.352g az=-0.302g magnitude=0.977g[0m
+[0;32mI (287403) mpu6050: reading ax=-0.854g ay=0.350g az=-0.294g magnitude=0.969g[0m
+[0;32mI (288503) mpu6050: reading ax=-0.858g ay=0.351g az=-0.302g magnitude=0.975g[0m
+[0;32mI (289603) mpu6050: reading ax=-0.852g ay=0.351g az=-0.304g magnitude=0.970g[0m
+[0;32mI (290703) mpu6050: reading ax=-0.857g ay=0.351g az=-0.301g magnitude=0.974g[0m
+[0;32mI (291803) mpu6050: reading ax=-0.855g ay=0.351g az=-0.301g magnitude=0.972g[0m
+[0;32mI (292903) mpu6050: reading ax=-0.856g ay=0.353g az=-0.297g magnitude=0.972g[0m
+[0;32mI (293903) mpu6050: reading ax=-0.855g ay=0.353g az=-0.298g magnitude=0.972g[0m
+[0;32mI (295003) mpu6050: reading ax=-0.852g ay=0.351g az=-0.297g magnitude=0.968g[0m
+[0;32mI (296003) mpu6050: reading ax=-0.851g ay=0.353g az=-0.296g magnitude=0.968g[0m
+[0;32mI (297003) mpu6050: reading ax=-0.857g ay=0.353g az=-0.296g magnitude=0.973g[0m
+[0;32mI (298103) mpu6050: reading ax=-0.854g ay=0.350g az=-0.303g magnitude=0.972g[0m
+[0;32mI (299203) mpu6050: reading ax=-0.854g ay=0.351g az=-0.300g magnitude=0.971g[0m
+[0;32mI (300203) mpu6050: reading ax=-0.855g ay=0.352g az=-0.304g magnitude=0.974g[0m
+[0;32mI (301203) mpu6050: reading ax=-0.855g ay=0.352g az=-0.292g magnitude=0.970g[0m
+[0;32mI (302303) mpu6050: reading ax=-0.856g ay=0.352g az=-0.301g magnitude=0.973g[0m
+[0;32mI (303303) mpu6050: reading ax=-0.855g ay=0.351g az=-0.299g magnitude=0.972g[0m
+[0;32mI (304303) mpu6050: reading ax=-0.855g ay=0.351g az=-0.295g magnitude=0.971g[0m
+[0;32mI (305303) mpu6050: reading ax=-0.859g ay=0.348g az=-0.295g magnitude=0.972g[0m
+[0;32mI (306403) mpu6050: reading ax=-0.858g ay=0.349g az=-0.297g magnitude=0.973g[0m
+[0;32mI (307503) mpu6050: reading ax=-0.854g ay=0.349g az=-0.299g magnitude=0.970g[0m
+[0;32mI (308603) mpu6050: reading ax=-0.853g ay=0.352g az=-0.299g magnitude=0.970g[0m
+[0;32mI (309603) mpu6050: reading ax=-0.852g ay=0.347g az=-0.300g magnitude=0.968g[0m
+[0;32mI (310703) mpu6050: reading ax=-0.856g ay=0.349g az=-0.304g magnitude=0.973g[0m
+[0;32mI (311803) mpu6050: reading ax=-0.853g ay=0.349g az=-0.297g magnitude=0.969g[0m
+[0;32mI (312803) mpu6050: reading ax=-0.853g ay=0.349g az=-0.298g magnitude=0.968g[0m
+[0;32mI (313803) mpu6050: reading ax=-0.852g ay=0.351g az=-0.301g magnitude=0.969g[0m
+[0;32mI (314803) mpu6050: reading ax=-0.853g ay=0.352g az=-0.293g magnitude=0.968g[0m
+[0;32mI (315903) mpu6050: reading ax=-0.854g ay=0.351g az=-0.300g magnitude=0.970g[0m
+[0;32mI (317003) mpu6050: reading ax=-0.859g ay=0.351g az=-0.303g magnitude=0.976g[0m
+[0;32mI (318003) mpu6050: reading ax=-0.858g ay=0.354g az=-0.304g magnitude=0.977g[0m
+[0;32mI (319103) mpu6050: reading ax=-0.855g ay=0.352g az=-0.295g magnitude=0.971g[0m
+[0;32mI (320103) mpu6050: reading ax=-0.854g ay=0.349g az=-0.296g magnitude=0.969g[0m
+[0;32mI (321203) mpu6050: reading ax=-0.856g ay=0.348g az=-0.294g magnitude=0.970g[0m
+[0;32mI (322203) mpu6050: reading ax=-0.852g ay=0.348g az=-0.302g magnitude=0.969g[0m
+[0;32mI (323303) mpu6050: reading ax=-0.859g ay=0.350g az=-0.297g magnitude=0.974g[0m
+[0;32mI (324403) mpu6050: reading ax=-0.854g ay=0.352g az=-0.299g magnitude=0.971g[0m
+[0;32mI (325503) mpu6050: reading ax=-0.858g ay=0.350g az=-0.296g magnitude=0.972g[0m
+[0;32mI (326503) mpu6050: reading ax=-0.853g ay=0.352g az=-0.301g magnitude=0.971g[0m
+[0;32mI (327503) mpu6050: reading ax=-0.852g ay=0.352g az=-0.299g magnitude=0.969g[0m
+[0;32mI (328503) mpu6050: reading ax=-0.857g ay=0.353g az=-0.297g magnitude=0.973g[0m
+[0;32mI (329603) mpu6050: reading ax=-0.854g ay=0.349g az=-0.301g magnitude=0.970g[0m
+[0;32mI (330603) mpu6050: reading ax=-0.858g ay=0.354g az=-0.299g magnitude=0.976g[0m
+[0;32mI (331703) mpu6050: reading ax=-0.854g ay=0.348g az=-0.299g magnitude=0.970g[0m
+[0;32mI (332803) mpu6050: reading ax=-0.858g ay=0.352g az=-0.304g magnitude=0.976g[0m
+[0;32mI (333803) mpu6050: reading ax=-0.854g ay=0.355g az=-0.292g magnitude=0.970g[0m
+[0;32mI (334903) mpu6050: reading ax=-0.856g ay=0.351g az=-0.298g magnitude=0.972g[0m
+[0;32mI (335903) mpu6050: reading ax=-0.852g ay=0.349g az=-0.300g magnitude=0.968g[0m
+[0;32mI (337003) mpu6050: reading ax=-0.856g ay=0.350g az=-0.296g magnitude=0.971g[0m
+[0;32mI (338003) mpu6050: reading ax=-0.851g ay=0.351g az=-0.296g magnitude=0.967g[0m
+[0;32mI (339103) mpu6050: reading ax=-0.857g ay=0.349g az=-0.295g magnitude=0.971g[0m
+[0;32mI (340103) mpu6050: reading ax=-0.856g ay=0.350g az=-0.302g magnitude=0.973g[0m
+[0;32mI (341203) mpu6050: reading ax=-0.853g ay=0.350g az=-0.298g magnitude=0.969g[0m
+[0;32mI (342303) mpu6050: reading ax=-0.854g ay=0.350g az=-0.302g magnitude=0.971g[0m
+[0;32mI (343303) mpu6050: reading ax=-0.860g ay=0.352g az=-0.300g magnitude=0.976g[0m
+[0;32mI (344303) mpu6050: reading ax=-0.854g ay=0.352g az=-0.294g magnitude=0.970g[0m
+[0;32mI (345403) mpu6050: reading ax=-0.856g ay=0.350g az=-0.305g magnitude=0.974g[0m
+[0;32mI (346503) mpu6050: reading ax=-0.858g ay=0.352g az=-0.298g magnitude=0.974g[0m
+[0;32mI (347603) mpu6050: reading ax=-0.854g ay=0.348g az=-0.297g magnitude=0.969g[0m
+[0;32mI (348703) mpu6050: reading ax=-0.853g ay=0.353g az=-0.300g magnitude=0.971g[0m
+[0;32mI (349803) mpu6050: reading ax=-0.855g ay=0.349g az=-0.301g magnitude=0.971g[0m
+[0;32mI (350903) mpu6050: reading ax=-0.858g ay=0.352g az=-0.299g magnitude=0.974g[0m
+[0;32mI (351903) mpu6050: reading ax=-0.854g ay=0.351g az=-0.302g magnitude=0.971g[0m
+[0;32mI (352903) mpu6050: reading ax=-0.856g ay=0.353g az=-0.297g magnitude=0.972g[0m
+[0;32mI (353903) mpu6050: reading ax=-0.855g ay=0.352g az=-0.294g magnitude=0.971g[0m
+[0;32mI (355003) mpu6050: reading ax=-0.860g ay=0.354g az=-0.298g magnitude=0.977g[0m
+[0;32mI (356103) mpu6050: reading ax=-0.837g ay=0.356g az=-0.316g magnitude=0.963g[0m
+[0;32mI (357203) mpu6050: reading ax=-0.854g ay=0.350g az=-0.296g magnitude=0.969g[0m
+[0;32mI (358203) mpu6050: reading ax=-0.858g ay=0.354g az=-0.298g magnitude=0.975g[0m
+[0;32mI (359303) mpu6050: reading ax=-0.859g ay=0.350g az=-0.300g magnitude=0.975g[0m
+[0;32mI (360303) mpu6050: reading ax=-0.858g ay=0.347g az=-0.290g magnitude=0.969g[0m
+[0;32mI (361303) mpu6050: reading ax=-0.856g ay=0.350g az=-0.298g magnitude=0.971g[0m
+[0;32mI (362303) mpu6050: reading ax=-0.856g ay=0.347g az=-0.300g magnitude=0.971g[0m
+[0;32mI (363403) mpu6050: reading ax=-0.855g ay=0.348g az=-0.303g magnitude=0.972g[0m
+[0;32mI (364503) mpu6050: reading ax=-0.854g ay=0.354g az=-0.295g magnitude=0.970g[0m
+[0;32mI (365603) mpu6050: reading ax=-0.861g ay=0.349g az=-0.302g magnitude=0.977g[0m
+[0;32mI (366703) mpu6050: reading ax=-0.855g ay=0.349g az=-0.305g magnitude=0.972g[0m
+[0;32mI (367803) mpu6050: reading ax=-0.855g ay=0.352g az=-0.298g magnitude=0.972g[0m
+[0;32mI (368903) mpu6050: reading ax=-0.855g ay=0.353g az=-0.296g magnitude=0.971g[0m
+[0;32mI (370003) mpu6050: reading ax=-0.854g ay=0.350g az=-0.299g magnitude=0.970g[0m
+[0;32mI (371103) mpu6050: reading ax=-0.853g ay=0.346g az=-0.298g magnitude=0.968g[0m
+[0;32mI (372203) mpu6050: reading ax=-0.853g ay=0.347g az=-0.305g magnitude=0.970g[0m
+[0;32mI (373203) mpu6050: reading ax=-0.858g ay=0.347g az=-0.302g magnitude=0.974g[0m
+[0;32mI (374203) mpu6050: reading ax=-0.853g ay=0.348g az=-0.298g magnitude=0.968g[0m
+[0;32mI (375203) mpu6050: reading ax=-0.855g ay=0.350g az=-0.300g magnitude=0.971g[0m
+[0;32mI (376303) mpu6050: reading ax=-0.854g ay=0.347g az=-0.296g magnitude=0.968g[0m
+[0;32mI (377303) mpu6050: reading ax=-0.855g ay=0.346g az=-0.294g magnitude=0.968g[0m
+[0;32mI (378303) mpu6050: reading ax=-0.856g ay=0.346g az=-0.296g magnitude=0.970g[0m
+[0;32mI (379303) mpu6050: reading ax=-0.854g ay=0.352g az=-0.310g magnitude=0.974g[0m
+[0;32mI (380303) mpu6050: reading ax=-0.857g ay=0.352g az=-0.300g magnitude=0.974g[0m
+[0;32mI (381403) mpu6050: reading ax=-0.856g ay=0.352g az=-0.298g magnitude=0.972g[0m
+[0;32mI (382503) mpu6050: reading ax=-0.849g ay=0.352g az=-0.294g magnitude=0.965g[0m
+[0;32mI (383603) mpu6050: reading ax=-0.857g ay=0.354g az=-0.300g magnitude=0.975g[0m
+[0;32mI (384703) mpu6050: reading ax=-0.856g ay=0.354g az=-0.301g magnitude=0.974g[0m
+[0;32mI (385703) mpu6050: reading ax=-0.855g ay=0.349g az=-0.299g magnitude=0.971g[0m
+[0;32mI (386703) mpu6050: reading ax=-0.853g ay=0.353g az=-0.299g magnitude=0.971g[0m

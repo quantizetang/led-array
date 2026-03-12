@@ -1,0 +1,2 @@
+source C:/workspaces/led-array/build/bootloader/gdbinit/symbols
+source C:/workspaces/led-array/build/bootloader/gdbinit/connect
