@@ -15,10 +15,10 @@ static void config_set_defaults(app_config_t *config)
     memset(config, 0, sizeof(*config));
     strlcpy(config->ap_ssid, "LED-Array-Setup", sizeof(config->ap_ssid));
     strlcpy(config->ap_password, "ledarray123", sizeof(config->ap_password));
-    config->brightness_limit = 16;
+    config->brightness_limit = 5;
     config->matrix_serpentine = false;
     config->matrix_rotation = 0;
-    config->startup_effect_id = 2;
+    config->startup_effect_id = 1;
     config->tilt_threshold_g = 0.30f;
     config->shake_threshold_delta_g = 0.90f;
     config->provider_enabled = false;
@@ -68,6 +68,9 @@ esp_err_t config_store_load(app_config_t *config)
         config_set_defaults(config);
         return ESP_OK;
     }
+
+    config->brightness_limit = 5;
+    config->startup_effect_id = 1;
 
     return ESP_OK;
 }

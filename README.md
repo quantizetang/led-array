@@ -15,7 +15,7 @@ The project is structured as a reusable platform rather than a one-off sketch. C
 - 8x8 matrix abstraction with serpentine and rotation-aware mapping
 - Default effects:
   - static color
-  - rainbow
+  - swirl
   - tilt-reactive gradient
   - motion sparkle
   - provider-reactive placeholder

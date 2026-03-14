@@ -36,8 +36,8 @@ idf.py erase-flash
 
 - AP SSID: `LED-Array-Setup`
 - AP password: `ledarray123`
-- brightness limit: `16 / 255`
+- brightness limit: `5 / 255`
 - matrix mode: `straight rows`
-- startup effect: `static` diagnostic mapping test
+- startup effect: `swirl`
 - tilt threshold: `0.30g`
 - shake threshold delta: `0.90g`

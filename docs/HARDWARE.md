@@ -24,7 +24,7 @@ These pins are chosen to avoid the most common USB and boot-sensitive paths on E
 - Tie the grounds of the ESP32, LED power supply, and MPU6050 together.
 - Start with a conservative brightness limit during bring-up.
 - Use a level shifter for reliable WS2812 signaling when the matrix is powered from 5V.
-- If you are temporarily powering the matrix from the onboard regulator anyway, keep brightness very low. This firmware now hard-caps output to `16/255`.
+- If you are temporarily powering the matrix from the onboard regulator anyway, keep brightness very low. This firmware now hard-caps output to `5/255`.
 
 Worst-case LED current for 64 WS2812B pixels at full white can exceed 3A. This firmware intentionally defaults to a low brightness cap to avoid brownouts and overheating during development.
 

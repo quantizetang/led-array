@@ -3,7 +3,7 @@
 #include "led_strip.h"
 
 #define WS2812_GPIO 7
-#define WS2812_HARD_BRIGHTNESS_CAP 16
+#define WS2812_HARD_BRIGHTNESS_CAP 5
 
 static led_strip_handle_t s_led_strip;
 static app_config_t s_config;
