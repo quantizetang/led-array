@@ -15,38 +15,23 @@ static uint32_t s_cycle_time_ms;
 #define SCENE_SWIRL_DURATION_MS 10000U
 #define SCENE_RAINBOW_DURATION_MS 10000U
 #define SCENE_WINDOWS_DURATION_MS 10000U
-#define LETTER_WIDTH 5U
-#define LETTER_HEIGHT 7U
+#define LETTER_WIDTH 3U
+#define LETTER_HEIGHT 5U
 #define LETTER_SPACING 1U
-#define LETTER_SCROLL_STEP_MS 90U
+#define LETTER_SCROLL_STEP_MS 80U
+#define SCROLL_CHAR_COUNT 36U
 
-static const uint8_t s_glyphs[26][LETTER_WIDTH] = {
-    {0x7e, 0x09, 0x09, 0x09, 0x7e},
-    {0x7f, 0x49, 0x49, 0x49, 0x36},
-    {0x3e, 0x41, 0x41, 0x41, 0x22},
-    {0x7f, 0x41, 0x41, 0x22, 0x1c},
-    {0x7f, 0x49, 0x49, 0x49, 0x41},
-    {0x7f, 0x09, 0x09, 0x09, 0x01},
-    {0x3e, 0x41, 0x49, 0x49, 0x7a},
-    {0x7f, 0x08, 0x08, 0x08, 0x7f},
-    {0x41, 0x41, 0x7f, 0x41, 0x41},
-    {0x20, 0x40, 0x41, 0x3f, 0x01},
-    {0x7f, 0x08, 0x14, 0x22, 0x41},
-    {0x7f, 0x40, 0x40, 0x40, 0x40},
-    {0x7f, 0x02, 0x0c, 0x02, 0x7f},
-    {0x7f, 0x04, 0x08, 0x10, 0x7f},
-    {0x3e, 0x41, 0x41, 0x41, 0x3e},
-    {0x7f, 0x09, 0x09, 0x09, 0x06},
-    {0x3e, 0x41, 0x51, 0x21, 0x5e},
-    {0x7f, 0x09, 0x19, 0x29, 0x46},
-    {0x46, 0x49, 0x49, 0x49, 0x31},
-    {0x01, 0x01, 0x7f, 0x01, 0x01},
-    {0x3f, 0x40, 0x40, 0x40, 0x3f},
-    {0x1f, 0x20, 0x40, 0x20, 0x1f},
-    {0x7f, 0x20, 0x18, 0x20, 0x7f},
-    {0x63, 0x14, 0x08, 0x14, 0x63},
-    {0x03, 0x04, 0x78, 0x04, 0x03},
-    {0x61, 0x51, 0x49, 0x45, 0x43},
+static const char s_scroll_chars[SCROLL_CHAR_COUNT + 1U] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+static const uint8_t s_glyphs[SCROLL_CHAR_COUNT][LETTER_WIDTH] = {
+    {0x1e, 0x05, 0x1e}, {0x1f, 0x15, 0x0a}, {0x0e, 0x11, 0x11}, {0x1f, 0x11, 0x0e},
+    {0x1f, 0x15, 0x11}, {0x1f, 0x05, 0x01}, {0x0e, 0x11, 0x1d}, {0x1f, 0x04, 0x1f},
+    {0x11, 0x1f, 0x11}, {0x08, 0x10, 0x0f}, {0x1f, 0x04, 0x1b}, {0x1f, 0x10, 0x10},
+    {0x1f, 0x06, 0x1f}, {0x1f, 0x0e, 0x1f}, {0x0e, 0x11, 0x0e}, {0x1f, 0x05, 0x02},
+    {0x0e, 0x19, 0x1e}, {0x1f, 0x0d, 0x16}, {0x12, 0x15, 0x09}, {0x01, 0x1f, 0x01},
+    {0x0f, 0x10, 0x0f}, {0x07, 0x18, 0x07}, {0x1f, 0x0c, 0x1f}, {0x1b, 0x04, 0x1b},
+    {0x03, 0x1c, 0x03}, {0x19, 0x15, 0x13}, {0x0e, 0x11, 0x0e}, {0x12, 0x1f, 0x10},
+    {0x19, 0x15, 0x12}, {0x11, 0x15, 0x0a}, {0x07, 0x04, 0x1f}, {0x17, 0x15, 0x09},
+    {0x0e, 0x15, 0x08}, {0x01, 0x1d, 0x03}, {0x0a, 0x15, 0x0a}, {0x02, 0x15, 0x0e},
 };
 
 static rgb_pixel_t hsv_to_rgb(uint16_t hue, uint8_t sat, uint8_t val)
@@ -194,77 +179,125 @@ static void render_rainbow_diagonal_scene(uint32_t scene_ms)
     }
 }
 
-static void render_windows_icon_scene(uint32_t scene_ms)
+static void render_image_bitmap(const char *bitmap[APP_MATRIX_HEIGHT], int x_offset)
 {
-    clear_framebuffer();
-
-    uint8_t pulse = (uint8_t)(220U + ((sinf((float)scene_ms * 0.0012f) + 1.0f) * 17.0f));
     rgb_pixel_t black = {0, 0, 0};
-    rgb_pixel_t border = scale_rgb((rgb_pixel_t){32, 32, 32}, pulse);
-    rgb_pixel_t white = scale_rgb((rgb_pixel_t){235, 235, 235}, pulse);
-    rgb_pixel_t gray = scale_rgb((rgb_pixel_t){150, 150, 150}, pulse);
-    rgb_pixel_t title = scale_rgb((rgb_pixel_t){40, 85, 255}, pulse);
-    rgb_pixel_t red = scale_rgb((rgb_pixel_t){255, 70, 70}, pulse);
-    rgb_pixel_t sand = scale_rgb((rgb_pixel_t){255, 210, 120}, pulse);
-
-    static const char *icon[APP_MATRIX_HEIGHT] = {
-        "BBBBBBBB",
-        "BWWWWWWK",
-        "BWWWWWWK",
-        "KWWWWWWK",
-        "KRKWWGWK",
-        "KWSKWWWK",
-        "KRKWWGWK",
-        "KKKKKKKK",
-    };
+    rgb_pixel_t lime = {170, 255, 0};
+    rgb_pixel_t white = {235, 235, 235};
+    rgb_pixel_t gray = {175, 175, 175};
+    rgb_pixel_t dark = {78, 78, 78};
+    rgb_pixel_t red = {210, 40, 30};
+    rgb_pixel_t ember = {255, 64, 48};
+    rgb_pixel_t orange = {255, 145, 48};
+    rgb_pixel_t yellow = {255, 220, 88};
+    rgb_pixel_t warm_white = {255, 244, 214};
 
     for (int y = 0; y < APP_MATRIX_HEIGHT; ++y) {
         for (int x = 0; x < APP_MATRIX_WIDTH; ++x) {
             rgb_pixel_t color = black;
-            switch (icon[y][x]) {
-            case 'B':
-                color = title;
+            switch (bitmap[y][x]) {
+            case 'G':
+                color = lime;
                 break;
             case 'W':
                 color = white;
                 break;
-            case 'G':
+            case 'M':
                 color = gray;
                 break;
+            case 'D':
+                color = dark;
+                break;
             case 'K':
-                color = border;
+                color = black;
                 break;
             case 'R':
                 color = red;
                 break;
-            case 'S':
-                color = sand;
+            case 'E':
+                color = ember;
+                break;
+            case 'O':
+                color = orange;
+                break;
+            case 'Y':
+                color = yellow;
+                break;
+            case 'H':
+                color = warm_white;
                 break;
             default:
                 break;
             }
-            set_pixel(x, y, color);
+            set_pixel(x + x_offset, y, color);
         }
+    }
+}
+
+static void render_windows_icon_scene(uint32_t scene_ms)
+{
+    clear_framebuffer();
+
+    static const char *image_a[APP_MATRIX_HEIGHT] = {
+        "GGGGGGGG",
+        "GGWWWWGG",
+        "GGWBWBWG",
+        "GGWWWWWG",
+        "GGMMMMMG",
+        "GGWMMMMG",
+        "GGDGGDGG",
+        "GGDGGDGG",
+    };
+
+    static const char *image_b[APP_MATRIX_HEIGHT] = {
+        "KKKRKKKK",
+        "KKKRRKKK",
+        "KKRROKKK",
+        "KRRRORKK",
+        "KRRYYRKK",
+        "KROYYORK",
+        "KRRHYORK",
+        "KKRHHROK",
+    };
+
+    if (scene_ms < 4000U) {
+        render_image_bitmap(image_a, 0);
+    } else if (scene_ms < 6000U) {
+        int shift = (int)(((scene_ms - 4000U) * APP_MATRIX_WIDTH) / 2000U);
+        render_image_bitmap(image_a, -shift);
+        render_image_bitmap(image_b, (int)APP_MATRIX_WIDTH - shift);
+    } else {
+        render_image_bitmap(image_b, 0);
     }
 }
 
 static uint32_t alphabet_scene_duration_ms(void)
 {
     uint32_t columns_per_letter = APP_MATRIX_WIDTH + LETTER_WIDTH + LETTER_SPACING;
-    return 26U * columns_per_letter * LETTER_SCROLL_STEP_MS;
+    return SCROLL_CHAR_COUNT * columns_per_letter * LETTER_SCROLL_STEP_MS;
 }
 
-static void render_letter(char letter, int x_offset, rgb_pixel_t color)
+static const uint8_t *lookup_glyph(char glyph)
 {
-    if (letter < 'A' || letter > 'Z') {
+    for (size_t i = 0; i < SCROLL_CHAR_COUNT; ++i) {
+        if (s_scroll_chars[i] == glyph) {
+            return s_glyphs[i];
+        }
+    }
+    return NULL;
+}
+
+static void render_glyph(char glyph, int x_offset, rgb_pixel_t color)
+{
+    const uint8_t *bitmap = lookup_glyph(glyph);
+    if (bitmap == NULL) {
         return;
     }
 
-    const uint8_t *glyph = s_glyphs[letter - 'A'];
     for (uint8_t column = 0; column < LETTER_WIDTH; ++column) {
         for (uint8_t row = 0; row < LETTER_HEIGHT; ++row) {
-            if ((glyph[column] >> row) & 0x01U) {
-                set_pixel(x_offset + (int)column, (int)row, color);
+            if ((bitmap[column] >> row) & 0x01U) {
+                set_pixel(x_offset + (int)column, (int)row + 1, color);
             }
         }
     }
@@ -279,17 +312,17 @@ static void render_alphabet_scene(uint32_t scene_ms)
     uint32_t letter_index = step / columns_per_letter;
     uint32_t column_offset = step % columns_per_letter;
 
-    if (letter_index >= 26U) {
-        letter_index = 25U;
+    if (letter_index >= SCROLL_CHAR_COUNT) {
+        letter_index = SCROLL_CHAR_COUNT - 1U;
         column_offset = columns_per_letter - 1U;
     }
 
     int x_offset = (int)APP_MATRIX_WIDTH - (int)column_offset;
-    char letter = (char)('A' + (char)letter_index);
+    char letter = s_scroll_chars[letter_index];
     uint16_t hue = (uint16_t)((letter_index * 9U + step * 2U) % 256U);
     rgb_pixel_t color = hsv_to_rgb(hue, 160U, 180U);
 
-    render_letter(letter, x_offset, color);
+    render_glyph(letter, x_offset, color);
 }
 
 static void effect_static_update(rgb_pixel_t *framebuffer, const app_state_t *state, uint32_t dt_ms)
